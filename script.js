@@ -50,7 +50,10 @@ yesButton.addEventListener("click", function () {
     <div class="yes-screen">
       <h1 class="yes-text">!!!喜欢你!! ( >᎑<)♡︎ᐝ</h1>
       <img src="images/hug.png" alt="拥抱" class="yes-image">
-      <a href="https://github.com/your-username/your-repo" target="_blank" class="repo-link">项目仓库</a>
+      <a href="https://github.com/phyang-zero/YesOrYes" target="_blank" class="repo-link">
+        <img src="images/github.png" alt="GitHub" class="github-icon">
+        网页源码
+      </a>
     </div>
   `;
   document.body.style.overflow = "hidden";
