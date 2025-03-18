@@ -1,7 +1,3 @@
-:root {
-    --yes-scale: 1; /* 默认缩放比例 */
-}
-
 body {
     background-color: #f1d5da; /* 浅粉色 */
     text-align: center;
@@ -17,7 +13,6 @@ body {
 .container {
     width: 90%; /* 适应手机屏幕宽度 */
     max-width: 500px; /* 最大宽度限制 */
-    position: relative; /* 让 #no 按钮可以在内部绝对定位 */
 }
 
 #mainImage {
@@ -32,13 +27,6 @@ h1 {
     margin: 20px 0; /* 增加上下间距 */
 }
 
-.buttons {
-    position: relative; /* 让按钮组成为相对定位的容器 */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 button {
     font-size: 4vw; /* 字体大小根据视口宽度变化 */
     padding: 10px 20px;
@@ -49,34 +37,15 @@ button {
     transition: all 0.3s ease;
 }
 
-/* 让 yes 按钮放大时不会影响 no 按钮 */
 #yes {
     background-color: #d4818e; /* 粉色 */
     color: white;
-    transform: scale(var(--yes-scale));
-    transition: transform 0.3s ease-in-out;
-    position: relative; /* 让它不影响其他按钮的布局 */
-    z-index: 10; /* 确保在最上方 */
 }
 
-/* 让 no 按钮可移动 */
 #no {
     background-color: #6784b1; /* 蓝色 */
     color: white;
-    position: absolute;
-    left: 50%; /* 初始位置居中 */
-    transform: translateX(-50%); /* 确保居中 */
-    transition: transform 0.3s ease-in-out;
-}
-
-/* 让 yes 按钮持续跳动，但基于 CSS 变量 */
-@keyframes pulse {
-    0% { transform: scale(calc(var(--yes-scale) * 1)); }
-    50% { transform: scale(calc(var(--yes-scale) * 1.1)); }
-    100% { transform: scale(calc(var(--yes-scale) * 1)); }
-}
-.yes-grow {
-    animation: pulse 0.5s infinite alternate ease-in-out;
+    position: relative;
 }
 
 .yes-screen {
@@ -90,17 +59,6 @@ button {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-@keyframes floating {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(-200px); opacity: 0; }
-}
-.heart {
-    position: absolute;
-    color: red;
-    font-size: 30px;
-    animation: floating 3s ease-in-out infinite;
 }
 
 .yes-text {
