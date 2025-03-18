@@ -44,14 +44,14 @@ noButton.addEventListener("click", function () {
   if (clickCount >= 5) mainImage.src = "images/crying.png";      // 之后一直是哭
 });
 
-// Yes 按钮点击后，进入表白成功页面，并新增心形飘落动画效果及项目仓库链接
+// Yes 按钮点击后，进入表白成功页面，并新增心形飘落动画效果及项目仓库链接（使用 Font Awesome 图标）
 yesButton.addEventListener("click", function () {
   document.body.innerHTML = `
     <div class="yes-screen">
       <h1 class="yes-text">!!!喜欢你!! ( >᎑<)♡︎ᐝ</h1>
       <img src="images/hug.png" alt="拥抱" class="yes-image">
       <a href="https://github.com/phyang-zero/YesOrYes" target="_blank" class="repo-link">
-        <img src="images/github.png" alt="GitHub" class="github-icon">
+        <i class="fab fa-fw fa-github"></i>
         网页源码
       </a>
     </div>
