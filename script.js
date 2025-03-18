@@ -18,33 +18,38 @@ const noTexts = [
 noButton.addEventListener("click", function() {
     clickCount++;
 
-    // 让 Yes 变大，每次放大 2 倍
-    let yesSize = 1 + (clickCount * 1.2);
-    yesButton.style.transform = `scale(${yesSize})`;
-    yesButton.classList.add("yes-grow");
+    // 计算新的放大倍数
+    let yesSize = 1 + (clickCount * 0.2);
+    
+    // 使用 CSS 变量更新 Yes 按钮的 scale 值
+    document.documentElement.style.setProperty("--yes-scale", yesSize);
 
-    // 随机移动 No 按钮
-    let noOffsetX = (Math.random() - 0.5) * 200;  // 左右随机偏移
-    let noOffsetY = (Math.random() - 0.5) * 100;  // 上下随机偏移
+    // 添加跳动动画（确保只添加一次）
+    if (!yesButton.classList.contains("yes-grow")) {
+        yesButton.classList.add("yes-grow");
+    }
+
+    // No 按钮随机移动
+    let noOffsetX = (Math.random() - 0.5) * 200;
+    let noOffsetY = (Math.random() - 0.5) * 100;
     noButton.style.transform = `translate(${noOffsetX}px, ${noOffsetY}px)`;
 
-    // **让图片和文字往上移动**
-    let moveUp = clickCount * 25; // 每次上移 20px
+    // 图片和文字上移
+    let moveUp = clickCount * 25;
     mainImage.style.transform = `translateY(-${moveUp}px)`;
     questionText.style.transform = `translateY(-${moveUp}px)`;
 
-    // No 文案变化（前 5 次变化）
+    // No 按钮文字变化
     if (clickCount <= 5) {
         noButton.innerText = noTexts[clickCount - 1];
     }
 
-    // 图片变化（前 5 次变化）
-    if (clickCount === 1) mainImage.src = "images/rencuo.png"; // 震惊
-    if (clickCount === 2) mainImage.src = "images/geiqian.png";   // 思考
-    if (clickCount === 3) mainImage.src = "images/duoqilai.png";   // 生气
-    if (clickCount === 4) mainImage.src = "images/weiqu.png";  // 哭
-    if (clickCount >= 5) mainImage.src = "images/crying.png";  // 之后一直是哭
-
+    // 图片变化
+    if (clickCount === 1) mainImage.src = "images/rencuo.png";
+    if (clickCount === 2) mainImage.src = "images/geiqian.png";
+    if (clickCount === 3) mainImage.src = "images/duoqilai.png";
+    if (clickCount === 4) mainImage.src = "images/weiqu.png";
+    if (clickCount >= 5) mainImage.src = "images/crying.png";
 });
 
 // Yes 按钮点击后，进入表白成功页面
