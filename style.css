@@ -71,9 +71,10 @@ button {
   margin-top: 20px;
 }
 
-/* 新增：项目仓库链接样式 */
+/* 新增：项目仓库链接样式及图标 */
 .repo-link {
-  display: block;
+  display: inline-flex;
+  align-items: center;
   margin-top: 30px;
   font-size: 16px;
   color: #68495b;
@@ -81,6 +82,11 @@ button {
   border: 1px solid #68495b;
   padding: 5px 10px;
   border-radius: 5px;
+}
+
+.repo-link i {
+  margin-right: 5px;
+  font-size: 20px;
 }
 
 /* 电脑端样式优化 */
