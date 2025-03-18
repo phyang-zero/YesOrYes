@@ -44,12 +44,13 @@ noButton.addEventListener("click", function () {
   if (clickCount >= 5) mainImage.src = "images/crying.png";      // 之后一直是哭
 });
 
-// Yes 按钮点击后，进入表白成功页面，并新增心形飘落动画效果
+// Yes 按钮点击后，进入表白成功页面，并新增心形飘落动画效果及项目仓库链接
 yesButton.addEventListener("click", function () {
   document.body.innerHTML = `
     <div class="yes-screen">
       <h1 class="yes-text">!!!喜欢你!! ( >᎑<)♡︎ᐝ</h1>
       <img src="images/hug.png" alt="拥抱" class="yes-image">
+      <a href="https://github.com/your-username/your-repo" target="_blank" class="repo-link">项目仓库</a>
     </div>
   `;
   document.body.style.overflow = "hidden";
