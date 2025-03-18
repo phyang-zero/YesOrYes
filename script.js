@@ -21,12 +21,14 @@ noButton.addEventListener("click", function() {
     // 让 Yes 变大，每次放大 2 倍
     let yesSize = 1 + (clickCount * 1.2);
     yesButton.style.transform = `scale(${yesSize})`;
+    yesButton.classList.add("yes-grow");
 
-    // 挤压 No 按钮，每次右移 100px
-    let noOffset = clickCount * 50;
-    noButton.style.transform = `translateX(${noOffset}px)`;
+    // 随机移动 No 按钮
+    let noOffsetX = (Math.random() - 0.5) * 200;  // 左右随机偏移
+    let noOffsetY = (Math.random() - 0.5) * 100;  // 上下随机偏移
+    noButton.style.transform = `translate(${noOffsetX}px, ${noOffsetY}px)`;
 
-    // **新增：让图片和文字往上移动**
+    // **让图片和文字往上移动**
     let moveUp = clickCount * 25; // 每次上移 20px
     mainImage.style.transform = `translateY(-${moveUp}px)`;
     questionText.style.transform = `translateY(-${moveUp}px)`;
@@ -55,4 +57,18 @@ yesButton.addEventListener("click", function() {
     `;
 
     document.body.style.overflow = "hidden";
+    startHeartAnimation();
 });
+
+// 爱心飘落动画
+function startHeartAnimation() {
+    setInterval(() => {
+        let heart = document.createElement("div");
+        heart.innerText = "❤️";
+        heart.classList.add("heart");
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.top = window.innerHeight + "px";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 3000);
+    }, 500);
+} 
